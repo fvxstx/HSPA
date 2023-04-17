@@ -1,48 +1,63 @@
 [
   {
     "Id": 1,
+    "SellRent": 1,
     "Name": "Birla House",
     "Type": "House",
-    "Price": 12000
+    "Price": 12000,
+    "Image": "prop-1"
   },
   {
     "Id": 2,
+    "SellRent": 1,
     "Name": "Erose Villa",
     "Type": "House",
-    "Price": 18400
+    "Price": 18400,
+    "Image": "prop-2"
   },
   {
     "Id": 3,
+    "SellRent": 1,
     "Name": "Arembepe Hou",
     "Type": "House",
-    "Price": 20000
+    "Price": 20000,
+    "Image": "prop-3"
   },
   {
     "Id": 4,
+    "SellRent": 2,
     "Name": "Cajacity",
     "Type": "House",
-    "Price": 78050
+    "Price": 78050,
+    "Image": "prop-4"
   },
   {
     "Id": 5,
+    "SellRent": 1,
     "Name": "Pernambues",
     "Type": "House",
-    "Price": 18700
+    "Price": 18700,
+    "Image": "prop-1"
   },
   {
     "Id": 6,
+    "SellRent": 1,
     "Name": "Inocoop",
     "Type": "House",
-    "Price": 19580
+    "Price": 19580,
+    "Image": "prop-2"
   },
   {
     "Id": 7,
+    "SellRent": 2,
     "Name": "Dias Dvila",
     "Type": "House",
-    "Price": 24500
+    "Price": 24500,
+    "Image": "prop-3"
   },
   {
     "Id": 8,
+    "SellRent": 2,
     "Name": "Candeias",
     "Type": "House",
     "Price": 10000

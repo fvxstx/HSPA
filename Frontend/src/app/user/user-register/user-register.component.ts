@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {
   AbstractControl,
+  FormBuilder,
   FormControl,
   FormGroup,
   ValidationErrors,
@@ -15,23 +16,23 @@ import {
 export class UserRegisterComponent {
   registrationForm!: FormGroup;
 
-  // Making validations for forms field
+  constructor(private fb: FormBuilder) {}
+
   ngOnInit() {
-    this.registrationForm = new FormGroup(
+    this.createRegustrationForm();
+  }
+
+  // Making validations for forms field
+  createRegustrationForm() {
+    this.registrationForm = this.fb.group(
       {
-        userName: new FormControl(null, Validators.required),
-        email: new FormControl(null, [Validators.required, Validators.email]),
-        password: new FormControl(null, [
-          Validators.required,
-          Validators.minLength(8),
-        ]),
-        confirmPassword: new FormControl(null, [Validators.required]),
-        mobile: new FormControl(null, [
-          Validators.required,
-          Validators.maxLength(10),
-        ]),
+        userName: [null, Validators.required],
+        email: [null, [Validators.required, Validators.email]],
+        password: [null, [Validators.required, Validators.minLength(8)]],
+        confirmPassword: [null, Validators.required],
+        mobile: [null, [Validators.required, Validators.maxLength(10)]],
       },
-      this.passwordMatchingValidator
+      { validators: this.passwordMatchingValidator }
     );
   }
 

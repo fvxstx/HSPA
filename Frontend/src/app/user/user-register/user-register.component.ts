@@ -7,6 +7,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-user-register',
@@ -15,8 +16,13 @@ import {
 })
 export class UserRegisterComponent {
   registrationForm!: FormGroup;
+  user: any;
+  userSubmitted!: boolean;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserServiceService
+  ) {}
 
   ngOnInit() {
     this.createRegustrationForm();
@@ -65,6 +71,15 @@ export class UserRegisterComponent {
   }
 
   onSubmit() {
-    console.log(this.registrationForm);
+    this.userSubmitted = true;
+    if (this.registrationForm.valid) {
+      this.user = this.registrationForm.value;
+      this.userService.addUser(this.user);
+      this.registrationForm.reset();
+      this.userSubmitted = false;
+      //alertify.success('Congrats');
+    } else {
+      //alertify.error('Not today');
+    }
   }
 }

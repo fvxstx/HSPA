@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { UserServiceService } from 'src/app/services/user-service.service';
+import { NgxToastrService } from 'src/app/services/ngx-toastr.service';
 
 @Component({
   selector: 'app-user-register',
@@ -21,7 +22,8 @@ export class UserRegisterComponent {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserServiceService
+    private userService: UserServiceService,
+    private toast: NgxToastrService
   ) {}
 
   ngOnInit() {
@@ -77,9 +79,9 @@ export class UserRegisterComponent {
       this.userService.addUser(this.user);
       this.registrationForm.reset();
       this.userSubmitted = false;
-      //alertify.success('Congrats');
+      this.toast.success('Congrats');
     } else {
-      //alertify.error('Not today');
+      this.toast.error('Not today');
     }
   }
 }

@@ -14,6 +14,9 @@ import { PropertyDetailComponent } from './property/property-detail/property-det
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserServiceService } from './services/user-service.service';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxToastrService } from './services/ngx-toastr.service';
 
 const appRoutes: Routes = [
   { path: '', component: PropertyListComponent },
@@ -42,8 +45,10 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [HousingService, UserServiceService],
+  providers: [HousingService, UserServiceService, NgxToastrService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
